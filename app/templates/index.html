@@ -2,6 +2,14 @@
 
 {% block content %}
 
-		Index
+		<div id="ToDoList">
+			<ul>
+				<li v-for="todo in todos">{{ todo.text }}</li>
+			</ul>
+		</div>
 
+{% endblock %}
+
+{% block static %}
+		<script src="[[url_for('static', filename='index.js')]]"></script>
 {% endblock %}
