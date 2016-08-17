@@ -1,0 +1,1 @@
+This project's aim is to provide a user-specific to-do list.
