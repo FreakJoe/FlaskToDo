@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 
 {% block content %}
+		<p>Unfortunately, you are required to log in to access the to-do functionality.</p>
+		<p>If you are a new user, please <a href="[[ url_for('auth.register') ]]">register</a> a new account.</p>
 
 		<form method="POST">
 			[[ form.hidden_tag() ]]

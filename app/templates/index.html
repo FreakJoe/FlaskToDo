@@ -2,6 +2,8 @@
 
 {% block content %}
 
+		<a href="[[ url_for('auth.logout') ]]">Log out</a>
+
 		<div id="ToDoList">
 			<ul>
 				<li v-if="todos.length <= 0">You do not have any to-dos yet. Add some!</li>
