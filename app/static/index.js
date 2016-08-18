@@ -1,36 +1,17 @@
 new Vue({
 	el: '#ToDoList',
 	data: {
-		todos: [
-			{text: 'Task 1'},
-			{text: 'Task 2'},
-			{text: 'Task 3'}
-		],
+		newTodo: '',
+		todos: eval("(" + todos + ")").todos,
 	},
-	ready() {
-
-		// POST /someUrl
-		this.$http.get('/api/todos/1', {foo: 'bar'}).then((response) => {
-
-		// get status
-			response.status;
-
-		// get status text
-			response.statusText;
-
-		// get all headers
-			response.headers;
-
-		// get 'Expires' header
-			response.headers['Expires'];
-
-		// set data on vm
-			this.todos = response.data;
-			console.log(response.data);
-
-		}, (response) => {
-		// error callback
-		});
-
+	methods: {
+		addTodo: function () {
+			var text = this.newTodo.trim();
+			if (text) {
+				this.todos.push({ text: text });
+				this.newTodo = '';
+				this.$http.put('/api/todos', {id: user_id, todos: {todos: this.todos}});
+			};
+		},
 	}
 });

@@ -6,10 +6,16 @@
 			<ul>
 				<li v-for="todo in todos">{{ todo.text }}</li>
 			</ul>
+			<input v-model="newTodo">
+			<button v-on:click="addTodo">Add to-do</button>
 		</div>
 
 {% endblock %}
 
 {% block static %}
+		<script type="text/javascript">
+			var todos = [[ current_user.todos|tojson ]];
+			var user_id = [[ current_user.id ]];
+		</script>
 		<script src="[[url_for('static', filename='index.js')]]"></script>
 {% endblock %}
