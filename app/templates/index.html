@@ -4,7 +4,10 @@
 
 		<div id="ToDoList">
 			<ul>
-				<li v-for="todo in todos">{{ todo.text }}</li>
+				<li v-for="todo in todos">
+					{{ todo.text }}
+					<button v-on:click="removeTodo($index)">X</button>
+				</li>
 			</ul>
 			<input v-model="newTodo">
 			<button v-on:click="addTodo">Add to-do</button>

@@ -13,5 +13,9 @@ new Vue({
 				this.$http.put('/api/todos', {id: user_id, todos: {todos: this.todos}});
 			};
 		},
+		removeTodo: function (index) {
+			this.todos.splice(index, 1);
+			this.$http.put('/api/todos', {id: user_id, todos: {todos: this.todos}});
+		}
 	}
 });
