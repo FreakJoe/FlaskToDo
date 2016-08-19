@@ -5,15 +5,21 @@
 		<a href="[[ url_for('auth.logout') ]]">Log out</a>
 
 		<div id="ToDoList">
-			<ul>
-				<li v-if="todos.length <= 0">You do not have any to-dos yet. Add some!</li>
-				<li v-for="todo in todos">
+			<ul class="collection">
+				<li v-for="todo in todos" href="" class="collection-item">
 					{{ todo.text }}
-					<button v-on:click="removeTodo($index)">X</button>
+					<button v-on:click="removeTodo($index)" class="btn-floating waves-effect waves-light">
+						<i class="material-icons">delete</i>
+					</button>
 				</li>
 			</ul>
-			<input v-model="newTodo">
-			<button v-on:click="addTodo">Add to-do</button>
+			<div class="input-field">
+				<input v-model="newTodo" type="text" name="newTodo">
+				<label for="newTodo">To-do description</label>
+			</div>
+			<button v-on:click="addTodo" class="btn waves-effect waves-light">
+				Add to-do<i class="material-icons right">note_add</i>
+			</button>
 		</div>
 
 {% endblock %}

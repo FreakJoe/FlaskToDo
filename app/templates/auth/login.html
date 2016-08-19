@@ -4,17 +4,22 @@
 		<p>Unfortunately, you are required to log in to access the to-do functionality.</p>
 		<p>If you are a new user, please <a href="[[ url_for('auth.register') ]]">register</a> a new account.</p>
 
-		<form method="POST">
+		<form method="POST" class="">
 			[[ form.hidden_tag() ]]
 
-			[[ form.email.label ]] [[ form.email() ]]
-			[[ form.password.label() ]] [[ form.password() ]]
-			[[ form.remember_me(class_="filled-in") ]] [[ form.remember_me.label() ]]
-			<div class="row">
+			<div class="input-field">
+				[[ form.email(autocomplete="off") ]] [[ form.email.label ]]
+			</div>
+			<div class="input-field">
+				[[ form.password(autocomplete="off") ]] [[ form.password.label() ]]
+			</div>
+			<div class="input-field">
+				[[ form.remember_me(class_="filled-in") ]] [[ form.remember_me.label(autocomplete="off") ]]
+			</div>
+			<div class="input-field">
 				<button class="btn waves-effect waves-light" type="submit">Log in
 					<i class="material-icons right">send</i>
 				</button>
 			</div>
 		</form>
-
 {% endblock %}
