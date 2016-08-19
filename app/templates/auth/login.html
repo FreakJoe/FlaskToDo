@@ -9,8 +9,12 @@
 
 			[[ form.email.label ]] [[ form.email() ]]
 			[[ form.password.label() ]] [[ form.password() ]]
-			[[ form.remember_me.label() ]] [[ form.remember_me() ]]
-			[[ form.submit.label() ]] [[ form.submit() ]]
+			[[ form.remember_me(class_="filled-in") ]] [[ form.remember_me.label() ]]
+			<div class="row">
+				<button class="btn waves-effect waves-light" type="submit">Log in
+					<i class="material-icons right">send</i>
+				</button>
+			</div>
 		</form>
 
 {% endblock %}
