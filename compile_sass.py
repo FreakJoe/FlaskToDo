@@ -8,7 +8,9 @@ def compile_sass():
 				sass_file = os.path.join(root, f)
 				scss = open(sass_file).read()
 
+				css_file = sass_file.replace(".scss", ".css")
+				css = ''
 				if scss is not '':
-					css_file = sass_file.replace(".scss", ".css")
 					css = sass.compile(string=scss)
-					open(css_file, 'w').write(css)
+					
+				open(css_file, 'w').write(css)

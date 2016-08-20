@@ -25,6 +25,16 @@
 		<script src="https://cdn.jsdelivr.net/vue.resource/0.9.3/vue-resource.min.js"></script>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<script type="text/javascript">
+				{% for message in messages %}
+					Materialize.toast('[[ message ]]', 5000);
+				{% endfor %}
+				</script>
+			{% endif %}
+		{% endwith %}
 		
 		<link rel="stylesheet" type="text/css" href="[[ url_for('static', filename='main.css') ]]">
 		{% block static %}{% endblock %}
